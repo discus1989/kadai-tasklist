@@ -13,7 +13,7 @@
             <tbody>
                 @foreach($task as $t)
                 <tr>
-                    <td>{{ $t->id }}</td>
+                    <td>{!! link_to_route('tasks.show', $t->id,['id' => $t->id]) !!}</td>
                     <td>{{ $t->content }}</td>
                 </tr>
                 @endforeach
