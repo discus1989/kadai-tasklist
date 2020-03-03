@@ -26,6 +26,9 @@
         </header>
         
         <div class="container">
+            
+            @include('tasks.error_messages')
+            
             @yield('content')
         </div>
         
