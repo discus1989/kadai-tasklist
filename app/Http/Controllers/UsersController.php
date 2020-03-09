@@ -15,11 +15,16 @@ class UsersController extends Controller
             ]);
     }
     
-    public function show($id){
+    public function show($id)
+    {
         $user = \app\User::find($id);
-        
-        return view('users.show', [
-            'user' => $user
+        if(\Auth::id() == $user->id){
+            return view('users.show', [
+                'user' => $user
             ]);
-    }
+        }
+        else{
+            return redirect()->route('tasks.index');
+        }
+    }   
 }

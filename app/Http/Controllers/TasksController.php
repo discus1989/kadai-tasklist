@@ -63,19 +63,19 @@ class TasksController extends Controller
             ]);
            
         $task = new Task;
-        // if(\Auth::check())...web.phpで制限済
-        // {
+         if(\Auth::check())
+         {
             $task->content = $request->content;
             $task->status = $request->status;
             $task->user_id = $request->user()->id;
             $task->save();
             
             return redirect('/');
-        //  }
-        //  else
-        //  {
-        //      return view("welcome");
-        // }
+          }
+          else
+          {
+              return redirect('/');
+         }
         
     }
 
@@ -88,8 +88,14 @@ class TasksController extends Controller
     public function show($id)
     {
         $task = Task::find($id);
-        
-        return view('tasks.show', ['task' => $task]);
+        if(\Auth::id() == $task->user_id)
+        {
+            return view('tasks.show', ['task' => $task]);
+        }
+        else
+        {
+            return redirect('/');
+        }
     }
 
     /**
@@ -106,7 +112,7 @@ class TasksController extends Controller
             return view('tasks.edit',['task' => $task]);
         }
         else{
-            redirect('/');
+            return redirect('/');
         }
     }
 
@@ -136,7 +142,7 @@ class TasksController extends Controller
         }
         else
         {
-            return view("welcome");
+            return redirect('/');
         }
         
     }
