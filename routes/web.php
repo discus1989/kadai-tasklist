@@ -12,10 +12,10 @@
 */
 
 Route::get('/', 'TasksController@index')->name('tasks.index');
-
+//下のgroupに修正しました
 //Route::resource('tasks', 'TasksController');
-Route::get('tasks/create', 'TasksController@create')->name('tasks.create');
-Route::get('tasks/{id}/edit', 'TasksController@edit')->name('tasks.edit');
+//Route::get('tasks/create', 'TasksController@create')->name('tasks.create');
+//Route::get('tasks/{id}/edit', 'TasksController@edit')->name('tasks.edit');
 
 //ユーザー登録
 Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -29,5 +29,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 //ユーザー機能
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
-    Route::resource('tasks', 'TasksController', ['only' => ['store', 'update','destroy']]);
+    Route::resource('tasks', 'TasksController');
 });
