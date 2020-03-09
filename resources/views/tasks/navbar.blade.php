@@ -20,7 +20,7 @@
                     </ul>
                 </li>
                 @else
-                    <li class="nav-item">{!! link_to_route('tasks.create', '新規作成', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('tasks.create', 'タスク作成', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('signup.get', 'ユーザー登録', [], ['class' => 'nav-link']) !!}</li>
                 @endif
             </ul>

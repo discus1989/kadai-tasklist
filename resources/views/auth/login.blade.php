@@ -22,7 +22,7 @@
                 {!! Form::submit('ログイン', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
             
-            <p class="mt-2">未登録？→{!! link_to_route('signup.get', '新規登録') !!}</p>
+            <p class="mt-2">未登録？ → {!! link_to_route('signup.get', '新規登録') !!}</p>
         </div>
     </div>
 @endsection

@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function index(){
-        $users = User::orderBy('id', 'desc')->paginate(5);
+    public function index()
+    {
+        $users = \App\User::orderBy('id', 'desc')->paginate(5);
         
         return view('users.index', [
             'users' => $users
@@ -15,7 +16,7 @@ class UsersController extends Controller
     }
     
     public function show($id){
-        $user = User::find($id);
+        $user = \app\User::find($id);
         
         return view('users.show', [
             'user' => $user
